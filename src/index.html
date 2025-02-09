@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MBTI性格测试</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>MBTI性格测试</h1>
+        </header>
+        <div id="test-container">
+            <div class="start-section">
+                <h2>欢迎参加MBTI性格测试</h2>
+                <p>这个测试将帮助你了解自己的性格类型。测试包含60个问题，大约需要10-15分钟完成。</p>
+                <p>请根据你的第一反应选择最符合的选项，没有对错之分。</p>
+                <div class="features">
+                    <div class="feature">
+                        <h3>✓ 专业测评</h3>
+                        <p>基于MBTI理论设计的专业题目</p>
+                    </div>
+                    <div class="feature">
+                        <h3>✓ 详细解读</h3>
+                        <p>全面分析16种性格类型特征</p>
+                    </div>
+                    <div class="feature">
+                        <h3>✓ 免费使用</h3>
+                        <p>完全免费，即测即得结果</p>
+                    </div>
+                </div>
+                <button onclick="startTest()" class="start-button">开始测试</button>
+            </div>
+        </div>
+    </div>
+    <script src="js/questions.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+        function startTest() {
+            const testContainer = document.getElementById('test-container');
+            testContainer.innerHTML = `
+                <div id="question-display"></div>
+                <div id="options"></div>
+            `;
+            test.displayNextQuestion();
+        }
+
+        // 检查是否是从分享链接进来的
+        window.onload = function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('share') === '1') {
+                const sharedType = urlParams.get('type');
+                if (sharedType) {
+                    // 如果是带有类型参数的分享链接，显示分享者的类型
+                    const typeInfo = window.personalityDescriptions[sharedType];
+                    if (typeInfo) {
+                        const container = document.querySelector('.start-section');
+                        container.insertAdjacentHTML('afterbegin', `
+                            <div class="shared-type-info">
+                                <p>你的朋友是 ${sharedType} 型 - ${typeInfo.title}</p>
+                                <p>${typeInfo.description.slice(0, 100)}...</p>
+                                <p class="try-test">来测测你是什么类型吧！</p>
+                            </div>
+                        `);
+                    }
+                }
+                // 滚动到开始测试按钮
+                document.querySelector('.start-section').scrollIntoView({ 
+                    behavior: 'smooth' 
+                });
+            }
+        }
+    </script>
+</body>
+</html> 

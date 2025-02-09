@@ -1,0 +1,437 @@
+:root {
+    --primary-color: #4A90E2;
+    --secondary-color: #F5A623;
+    --background-color: #F8F9FA;
+    --text-color: #333333;
+}
+
+body {
+    font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    background-color: var(--background-color);
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+#test-container {
+    background: white;
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.option-button {
+    width: 100%;
+    padding: 1rem;
+    margin: 0.5rem 0;
+    border: 2px solid var(--primary-color);
+    border-radius: 4px;
+    background: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.option-button:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
+.results {
+    text-align: center;
+    padding: 2rem;
+}
+
+.type-description {
+    margin: 2rem 0;
+    text-align: left;
+}
+
+.description-text {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--text-color);
+    margin-bottom: 2rem;
+}
+
+.strengths-weaknesses {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.strengths, .weaknesses {
+    background: var(--background-color);
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+.strengths h3, .weaknesses h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.restart-button, .share-button {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.restart-button {
+    background: var(--primary-color);
+    color: white;
+}
+
+.share-button {
+    background: var(--secondary-color);
+    color: white;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 4px;
+    background: #eee;
+    margin: 1rem 0;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.detailed-analysis {
+    margin-top: 3rem;
+    padding: 2rem;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.dimension-bars {
+    margin-top: 1.5rem;
+}
+
+.dimension-bar {
+    display: flex;
+    align-items: center;
+    margin: 1rem 0;
+    gap: 1rem;
+}
+
+.dimension-bar .label {
+    width: 60px;
+    font-weight: bold;
+}
+
+.dimension-bar .bar {
+    flex: 1;
+    height: 20px;
+    background: #eee;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.dimension-bar .fill {
+    height: 100%;
+    background: var(--primary-color);
+    transition: width 0.5s ease;
+}
+
+.dimension-bar .percentage {
+    width: 50px;
+    text-align: right;
+}
+
+.selected {
+    background: var(--primary-color);
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .strengths-weaknesses {
+        grid-template-columns: 1fr;
+    }
+    
+    .container {
+        padding: 1rem;
+    }
+    
+    .option-button {
+        padding: 0.8rem;
+    }
+}
+
+.fade-enter {
+    opacity: 0;
+}
+
+.fade-enter-active {
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip:hover::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.5rem;
+    background: rgba(0,0,0,0.8);
+    color: white;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+.start-section {
+    text-align: center;
+    padding: 2rem;
+}
+
+.start-section h2 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+.start-section p {
+    color: var(--text-color);
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.feature {
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.feature h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.feature p {
+    color: #666;
+    margin: 0;
+}
+
+.start-button {
+    background: var(--primary-color);
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    margin-top: 2rem;
+    transition: all 0.3s ease;
+}
+
+.start-button:hover {
+    background: #357abd;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(74, 144, 226, 0.2);
+}
+
+/* 支付界面样式 */
+.payment-section {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.payment-description {
+    font-size: 1.2em;
+    color: #333;
+    margin: 20px 0;
+}
+
+.payment-features {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+    text-align: left;
+}
+
+.payment-features li {
+    margin: 10px 0;
+    padding: 10px;
+    background: #f8f9fa;
+    border-radius: 5px;
+    color: #2c3e50;
+}
+
+.payment-price {
+    margin: 30px 0;
+}
+
+.original-price {
+    text-decoration: line-through;
+    color: #999;
+    margin-right: 15px;
+}
+
+.current-price {
+    color: #e74c3c;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.payment-qr {
+    margin: 20px 0;
+}
+
+.payment-qr-image {
+    max-width: 200px;
+    margin: 10px 0;
+}
+
+.check-payment-button {
+    background-color: #27ae60;
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    cursor: pointer;
+    margin: 20px 0;
+}
+
+.payment-tip {
+    color: #666;
+    font-size: 0.9em;
+}
+
+.share-dialog {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.share-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    max-width: 90%;
+    width: 500px;
+    position: relative;
+}
+
+.share-text {
+    background: #f5f5f5;
+    padding: 1rem;
+    border-radius: 4px;
+    margin: 1rem 0;
+    white-space: pre-wrap;
+}
+
+.share-buttons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.share-buttons button {
+    padding: 0.8rem;
+    border: none;
+    border-radius: 4px;
+    background: var(--primary-color);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.share-buttons button:hover {
+    opacity: 0.9;
+}
+
+.close-button {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #666;
+}
+
+.shared-type-info {
+    background: #f0f7ff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    border-left: 4px solid var(--primary-color);
+}
+
+.shared-type-info p {
+    margin: 0.5rem 0;
+}
+
+.try-test {
+    color: var(--primary-color);
+    font-weight: bold;
+    margin-top: 1rem;
+}
+
+.wechat-share-tip {
+    text-align: center;
+    padding: 1rem;
+    background: #f0f7ff;
+    border-radius: 4px;
+    margin: 1rem 0;
+}
+
+.wechat-share-tip p {
+    margin: 0.5rem 0;
+    color: var(--primary-color);
+}
+
+.wechat-share-tip p:first-child {
+    font-weight: bold;
+} 
